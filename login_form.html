@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="https://kit.fontawesome.com/e317b801fe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+</head>
+<body>
+<div class="main">
+    <div class="form">
+        <h1 id="title">Log In</h1>
+        <form id="loginForm" action="login.php" method="post">
+            <div class="input-box" id="LogInFields">
+                <div class="fields">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <span class="required-field">*</span>
+                </div>
+
+                <div class="fields">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="required-field">*</span>
+                </div>
+                <p>Forgot Password <a href="#">Click Here</a></p>
+            </div>
+            <div class="pindutan">
+                <button type="submit" id="login">Log In</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="login_validate.js"></script>
+</body>
+</html>
