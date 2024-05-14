@@ -1,27 +1,25 @@
-const loginValidation = new JustValidate("#loginForm");
-
-loginValidation
-    .addField("#email", [
-        {
-            rule: "required",
-            errorMessage: "Email is required"
+const loginValidation = new JustValidate("#loginForm", {
+    rules: {
+        username_or_email: {
+            required: true,
         },
-        {
-            rule: "email",
-            errorMessage: "Please enter a valid email"
-        }
-    ])
-    .addField("#password", [
-        {
-            rule: "required",
-            errorMessage: "Password is required"
-        }
-    ])
-    .onSuccess((event) => {
-        event.target.submit(); 
-    })
-    .onFail((fields) => {
-        fields.forEach((field) => {
+        password: {
+            required: true,
+        },
+    },
+    messages: {
+        username_or_email: {
+            required: "Email or username is required",
+        },
+        password: {
+            required: "Password is required",
+        },
+    },
+    submitHandler: function (form) {
+        form.submit();
+    },
+    invalidFormCallback: function (errors) {
+        errors.forEach((field) => {
             const fieldContainer = document.querySelector(field.selector).parentNode;
             fieldContainer.classList.add('invalid');
             const errorMessage = fieldContainer.querySelector('.error-message');
@@ -29,4 +27,5 @@ loginValidation
                 errorMessage.textContent = field.errorMessage;
             }
         });
-    });
+    }
+});
